@@ -1,0 +1,26 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  align-items: center;
+  margin: 80px;
+}
+.info {
+  display: flex;
+  background-color: red;
+  width: 1000px;
+  height: 800px;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+}
+.layout {
+  display: flex;
+  flex-wrap: wrap;
+
+  justify-content: center;
+  align-items: center;
+}
+.pokedex {
+  display: flex;
+}
