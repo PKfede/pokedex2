@@ -1,26 +1,41 @@
-import React from 'react'
+import React from "react";
 
 interface PaginationProps {
-    count: number,
-    setCount: React.Dispatch<React.SetStateAction<number>>
+  count: number;
+  page: number;
+  setPage: React.Dispatch<React.SetStateAction<number>>;
 }
 
-const Pagination: React.FC<PaginationProps> = ({ count, setCount }) => {
-    const handleClick = (e: any) => {
-        setCount(e.target.value)
-    }
+const Pagination: React.FC<PaginationProps> = ({ count, page, setPage }) => {
+  const handleClick = (e: any) => {
+    setPage(e.target.value * 5);
+  };
 
+  const handleNext = () => {
+    if (page <= count) setPage(page + 5);
+  };
+  const handlePrev = () => {
+    if (page > 0) setPage(page - 5);
+  };
 
-    return (
-        <div>
-            <button>Prev</button>
-            {Array.from(Array(count / (count / 5)), (e, i) => {
-                return <button value={i} onClick={(event) => handleClick(event)}>{i + 1}</button>
-            })}
-            <input type="number" name="" id="" />
-            <button>next</button>
-        </div>
-    )
-}
+  const aux = Array.from(Array(count));
 
-export default Pagination
+  console.log(aux);
+
+  return (
+    <div>
+      <button onClick={handlePrev}>Prev</button>
+      {Array.from(Array(5), (e, i) => {
+        return (
+          <button value={i} onClick={(event) => handleClick(event)}>
+            {i + 1}
+          </button>
+        );
+      })}
+      <input type="number" name="" id="" />
+      <button onClick={handleNext}>next</button>
+    </div>
+  );
+};
+
+export default Pagination;
