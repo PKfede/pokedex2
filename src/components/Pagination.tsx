@@ -10,42 +10,47 @@ interface PaginationProps {
 const Pagination: React.FC<PaginationProps> = ({ count, page, setPage }) => {
 
   const [arr, setArr] = useState<any>([])
-  const [className, setClassName] = useState([])
-  const [inputVal, setInput] = useState<any>("")
-  const [active, setActive] = useState("")
+  const [active, setActive] = useState(false)
 
-  const aux: any = []
 
   const handlePage = (val: any) => () => {
-    setActive(style.active)
     setPage(val);
-
+    // currentPage(val)
   };
+
+  // const currentPage = (val: any) => {
+  //   const targetButton = document.getElementById(val)
+  //   const clearTarget = document.getElementsByClassName(style.active)
+
+  //   clearTarget[0]?.classList.remove(style.active)
+  //   targetButton?.classList.add(style.active)
+  // }
+
   const handleInput = (val: any) => {
+
+    if (!arr.includes(val)) {
+      console.log("hey");
+      console.log(arr, "new");
+    }
     if (val <= Math.ceil(count / 5) && val > 0) {
+      // currentPage(val)
       setPage(val);
     }
+
   }
 
   const handleNext = () => {
-
     if (page < Math.ceil(count / 5)) {
       setPage(page + 1)
+      // currentPage(page + 1)
     }
-
-
   };
   const handlePrev = () => {
     if (page > 1) {
       setPage(page - 1)
+      // currentPage(page - 1)
     }
   };
-
-  const makeClass = () => {
-
-    setClassName(inputVal)
-  }
-
 
   const intervals = () => {
     const aux2: number[] = []
@@ -58,11 +63,9 @@ const Pagination: React.FC<PaginationProps> = ({ count, page, setPage }) => {
     }
 
     if (aux2.length < 5) {
-      console.log(aux2.length);
       const tempLength = aux2.length
 
       for (let i = 1; i <= (5 - tempLength); i++) {
-        console.log(aux2[0], i);
         aux2.unshift(aux2[0] - 1)
       }
     }
@@ -73,17 +76,24 @@ const Pagination: React.FC<PaginationProps> = ({ count, page, setPage }) => {
     intervals()
   }, [page])
 
+  const handleActive = () => {
+    setActive(true)
+  }
+
   return (
     <div>
       <button onClick={handlePrev}>Prev</button>
       {
         arr.map((val: any) => {
-          return <button key={val} className={active} onClick={handlePage(val)}>
+          return <button id={val} key={val} className={val === page ? style.active : style.inactive} onClick={handlePage(val)}>
             {val}
           </button>
         })
       }
-      <input type="number" name="" id="" min={1} onChange={(e) => handleInput(Number(e.target.value))} />
+      <button hidden={active ? true : false} onClick={handleActive}>...</button>
+      {
+        active && <input type="number" min={1} onChange={(e) => handleInput(Number(e.target.value))} />
+      }
       <button onClick={handleNext}>next</button>
     </div>
   );
