@@ -1,13 +1,26 @@
 .Card {
   display: flex;
-  background-color: rgb(30, 125, 64);
   align-items: center;
   justify-content: flex-start;
   width: 400px;
-  margin: 20px;
-  padding: 5px;
+  height: 120px;
+  margin-top: 15px;
+  margin-right: 10px;
+  justify-content: space-between;
+  border: solid;
 }
+
 .pokeImage {
   width: 100px;
   height: 100px;
+}
+
+.PokeTypes {
+  width: 100px;
+  border: solid;
+}
+
+.TypesLayout {
+  display: flex;
+  flex-direction: column;
 }

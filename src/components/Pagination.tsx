@@ -15,16 +15,8 @@ const Pagination: React.FC<PaginationProps> = ({ count, page, setPage }) => {
 
   const handlePage = (val: any) => () => {
     setPage(val);
-    // currentPage(val)
+
   };
-
-  // const currentPage = (val: any) => {
-  //   const targetButton = document.getElementById(val)
-  //   const clearTarget = document.getElementsByClassName(style.active)
-
-  //   clearTarget[0]?.classList.remove(style.active)
-  //   targetButton?.classList.add(style.active)
-  // }
 
   const handleInput = (val: any) => {
 
@@ -33,7 +25,6 @@ const Pagination: React.FC<PaginationProps> = ({ count, page, setPage }) => {
       console.log(arr, "new");
     }
     if (val <= Math.ceil(count / 5) && val > 0) {
-      // currentPage(val)
       setPage(val);
     }
 
@@ -42,13 +33,12 @@ const Pagination: React.FC<PaginationProps> = ({ count, page, setPage }) => {
   const handleNext = () => {
     if (page < Math.ceil(count / 5)) {
       setPage(page + 1)
-      // currentPage(page + 1)
+
     }
   };
   const handlePrev = () => {
     if (page > 1) {
       setPage(page - 1)
-      // currentPage(page - 1)
     }
   };
 

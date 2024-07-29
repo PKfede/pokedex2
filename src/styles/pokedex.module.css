@@ -3,21 +3,20 @@
   flex-direction: column;
   width: 400px;
   align-items: center;
-  margin: 80px;
 }
 .info {
   display: flex;
   background-color: red;
   width: 1000px;
-  height: 800px;
+  height: 655px;
   justify-content: flex-start;
   flex-direction: column;
   align-items: center;
 }
 .layout {
   display: flex;
+  margin-top: 100px;
   flex-wrap: wrap;
-
   justify-content: center;
   align-items: center;
 }

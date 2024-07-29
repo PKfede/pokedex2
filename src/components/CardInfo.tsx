@@ -1,15 +1,18 @@
 
+
 const CardInfo = ({ pokemon }: any) => {
+
     return (
         <>
             <div>
                 <h1>{pokemon.name}</h1>
-                <img src={`https://projectpokemon.org/images/normal-sprite/${pokemon.name}.gif`} alt="" />
+
+                <img src={pokemon?.sprites.other["official-artwork"].front_default} alt="" />
                 {
                     pokemon.types &&
-                    <div key={pokemon.id}>
-                        {pokemon.types.map((val: any) => {
-                            return <p key={pokemon.id}>{val.type.name}</p>
+                    <div>
+                        {pokemon.types.map((val: any, index: number) => {
+                            return <p key={index}>{val.type.name}</p>
                         })}
                     </div>
                 }
