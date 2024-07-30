@@ -1,0 +1,30 @@
+.PokeImg {
+  width: 150px;
+  height: auto;
+}
+
+.typeImg {
+  border: solid;
+  margin: 10px;
+  width: 100px;
+}
+
+.InfoLayout {
+  background-color: aqua;
+}
+
+.Stats {
+  display: flex;
+  flex-direction: column;
+}
+
+.AbilitiesLayout {
+  display: flex;
+  align-items: center;
+}
+.AbilitiesLayout p {
+}
+.Abilities {
+  border: solid;
+  border-radius: 10px;
+}
