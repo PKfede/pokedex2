@@ -1,0 +1,8 @@
+.EvolutionLayout {
+  background-color: aquamarine;
+  display: flex;
+  flex-direction: column;
+  width: 900px;
+  height: 310px;
+  align-items: center;
+}

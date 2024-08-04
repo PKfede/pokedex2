@@ -9,21 +9,21 @@ interface PaginationProps {
 
 const Pagination: React.FC<PaginationProps> = ({ count, page, setPage }) => {
 
-  const [arr, setArr] = useState<any>([])
+  const [arr, setArr] = useState<number[]>([])
   const [active, setActive] = useState(false)
 
 
-  const handlePage = (val: any) => () => {
+  const handlePage = (val: number) => () => {
     setPage(val);
 
   };
 
-  const handleInput = (val: any) => {
+  const handleInput = (val: number) => {
 
-    if (!arr.includes(val)) {
-      console.log("hey");
-      console.log(arr, "new");
-    }
+    // if (!arr.includes(val)) {
+    //   console.log("hey");
+    //   console.log(arr, "new");
+    // }
     if (val <= Math.ceil(count / 5) && val > 0) {
       setPage(val);
     }
@@ -71,7 +71,7 @@ const Pagination: React.FC<PaginationProps> = ({ count, page, setPage }) => {
   }
 
   return (
-    <div>
+    <div className={style.Pagination}>
       <button onClick={handlePrev}>Prev</button>
       {
         arr.map((val: any) => {

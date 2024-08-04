@@ -1,13 +1,12 @@
 .Card {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
   width: 400px;
   height: 120px;
-  margin-top: 15px;
-  margin-right: 10px;
   justify-content: space-between;
   border: solid;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .pokeImage {

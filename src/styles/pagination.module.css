@@ -5,3 +5,19 @@
 .inactive {
   background-attachment: white;
 }
+
+.Pagination {
+  display: flex;
+  width: 400px;
+}
+
+.Pagination button {
+  width: 100%;
+  height: 30px;
+
+  box-sizing: content-box;
+}
+
+.Pagination input {
+  width: 60px;
+}

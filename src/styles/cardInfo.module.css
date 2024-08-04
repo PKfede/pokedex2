@@ -10,21 +10,49 @@
 }
 
 .InfoLayout {
+  display: flex;
+  flex-direction: column;
   background-color: aqua;
+  width: 900px;
+  height: auto;
+}
+
+.PokemonGeneral {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .Stats {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .AbilitiesLayout {
   display: flex;
   align-items: center;
+
+  justify-content: center;
 }
-.AbilitiesLayout p {
-}
-.Abilities {
+.AbilitiesText {
   border: solid;
   border-radius: 10px;
+  padding: 5px;
+  margin: 5px;
+}
+.AttStats {
+  display: flex;
+  justify-content: center;
+}
+
+.AttStats p {
+  margin: 10px;
+  font-weight: bolder;
+}
+
+h1 {
+  background-color: red;
+  display: flex;
+  justify-content: center;
 }
