@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react"
 import styles from "../styles/card.module.css"
 import typeLibrary from "../assets/typesImg/assetIndex";
 import colorLibrary from "../assets/typesImg/colorIndex";
+import { PokemonData } from "../types/Pokemon";
 
 interface CardProps {
     id: string,

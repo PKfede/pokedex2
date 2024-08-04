@@ -4,18 +4,15 @@ import style from "../styles/pokedex.module.css";
 import Search from "../components/Search";
 import CardInfo from "../components/CardInfo";
 import Pagination from "../components/Pagination";
-
-interface PokeName {
-  name: string;
-  url: string;
-}
+import { PokemonData, PokeName } from "../types/Pokemon";
 
 const Pokedex = () => {
   const [list, setList] = useState([]);
-  const [pokemon, setPokemon] = useState({});
+  const [pokemon, setPokemon] = useState<PokemonData | null>(null);
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
   const [count, setCount] = useState(0);
+
 
   const fetchAllPokemon = async () => {
     try {
@@ -55,6 +52,7 @@ const Pokedex = () => {
     <>
       <div className={style.layout}>
         <div className={style.list}>
+          <Search setSearch={setSearch} setCount={setCount} />
           {list.map((poke: PokeName, index) => {
             const id = poke.url.split("/");
 
@@ -69,10 +67,10 @@ const Pokedex = () => {
           })}
           {count && <Pagination count={count} page={page} setPage={setPage} />}
         </div>
-        <div className={style.info}>
-          <Search setSearch={setSearch} setCount={setCount} />
-          <CardInfo pokemon={pokemon} />
-        </div>
+        {
+          pokemon && <CardInfo pokemon={pokemon} />
+        }
+
       </div>
     </>
   );
